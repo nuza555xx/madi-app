@@ -1,0 +1,7 @@
+{
+  "name": "madi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
