@@ -1,0 +1,39 @@
+<ion-header class="ion-no-border"> </ion-header>
+
+<ion-content class="setting-wrapper">
+  <ion-toolbar class="item-transparent">
+    <ion-title>ตั้งค่า</ion-title>
+  </ion-toolbar>
+  <div class="bg-cover"></div>
+  <div class="profile-cover ion-text-center">
+    <img class="profile-avatar" src="../../../assets/images/profile.png" />
+    <ion-label>
+      <h1>Panuwat Chaiwongthon</h1>
+      <p>nuchaiwongthon@gmail.com</p>
+    </ion-label>
+  </div>
+  <h5 class="ion-margin">ข้อมูลส่วนตัว</h5>
+  <ion-card>
+    <ion-item
+      lines="none"
+      *ngFor="let navMain of navItem.get().navMain"
+      [routerLink]="[navMain.url]"
+    >
+      <ion-icon slot="start" [name]="navMain.icon"></ion-icon>
+      <ion-label>{{navMain.title}}</ion-label>
+      <ion-icon class="arrow-list" slot="end" name="chevron-forward"></ion-icon>
+    </ion-item>
+  </ion-card>
+  <h5 class="ion-margin">อื่นๆ</h5>
+  <ion-card>
+    <ion-item
+      lines="none"
+      *ngFor="let navMain of navItem.get().navOther"
+      [routerLink]="[navMain.url]"
+    >
+      <ion-icon slot="start" [name]="navMain.icon"></ion-icon>
+      <ion-label>{{navMain.title}}</ion-label>
+      <ion-icon class="arrow-list" slot="end" name="chevron-forward"></ion-icon>
+    </ion-item>
+  </ion-card>
+</ion-content>

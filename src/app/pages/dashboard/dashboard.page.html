@@ -1,0 +1,48 @@
+<ion-header mode="md" class="ion-no-border">
+    <ion-toolbar class="ion-text-center item-transparent">
+        <img class="logo-toolbar" src="../../../assets/icon/logo.png" alt="logo" />
+    </ion-toolbar>
+</ion-header>
+<ion-content class="dashboard-wrapper">
+    <div class="bg-cover"></div>
+    <div class="menu-wrapper">
+        <ion-slides [pager]="false" [options]="menuSlideOption">
+            <ion-slide [routerLink]="['../../farm']">
+                <div class="ion-text-center">
+                    <div class="position-top-end">
+                        <ion-badge class="badge-count" mode="ios" color="danger">12</ion-badge>
+                    </div>
+                    <div class="image-menu-wrapper">
+                        <img src="../../../assets/images/plant.png" class="icon-menu" />
+                    </div>
+                    <small class="ion-no-margin">การเพาะปลูก</small>
+                </div>
+            </ion-slide>
+
+            <ion-slide [routerLink]="['../../market']">
+                <div class="ion-text-center">
+                    <div class="image-menu-wrapper">
+                        <img src="../../../assets/images/market.png" class="icon-menu" />
+                    </div>
+                    <small class="ion-no-margin">แหล่งซื้อขาย</small>
+                </div>
+            </ion-slide>
+            <ion-slide [routerLink]="['../../measure']">
+                <div class="ion-text-center">
+                    <div class="image-menu-wrapper">
+                        <img src="../../../assets/images/area.png" class="icon-menu" />
+                    </div>
+                    <small class="ion-no-margin">วัดพื้นที่</small>
+                </div>
+            </ion-slide>
+            <ion-slide [routerLink]="['../../report']">
+                <div class="ion-text-center">
+                    <div class="image-menu-wrapper">
+                        <img src="../../../assets/images/report.png" class="icon-menu" />
+                    </div>
+                    <small class="ion-no-margin">รายงาน</small>
+                </div>
+            </ion-slide>
+        </ion-slides>
+    </div>
+</ion-content>

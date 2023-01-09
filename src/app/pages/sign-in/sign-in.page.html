@@ -1,0 +1,69 @@
+<ion-header mode="md" class="ion-no-border"> </ion-header>
+<ion-content>
+    <div class="bg-cover"></div>
+    <div class="position-center">
+        <div class="sign-in-wrapper">
+            <div class="ion-text-center">
+                <a class="logo"></a>
+            </div>
+            <br />
+
+            <h4 class="ion-text-start">ลงชื่อเข้าใช้</h4>
+            <form [formGroup]="signInForm" novalidate>
+                <app-input
+                    [type]="'username'"
+                    [controlName]="signInForm.controls.username"
+                    [placeholder]="'ชื่อผู้ใช้'"
+                    [name]="'username'"
+                    [required]="true"
+                ></app-input>
+                <app-input
+                    [type]="'password'"
+                    [controlName]="signInForm.controls.password"
+                    [placeholder]="'รหัสผ่าน'"
+                    [name]="'password'"
+                    [required]="true"
+                    [minlength]="'8'"
+                ></app-input>
+            </form>
+            <div class="ion-text-end">
+                <a [routerLink]="['/forgot-password']"
+                    ><small><ion-text color="primary">ลืมรหัสผ่าน</ion-text></small></a
+                >
+            </div>
+
+            <ng-container>
+                <div class="btn-sign-in-wrapper">
+                    <ion-button
+                        expand="block"
+                        [disabled]="signInForm.status === 'INVALID' ? true : false"
+                        (click)="login()"
+                        >ลงชื่อเข้าใช้</ion-button
+                    >
+                </div>
+            </ng-container>
+            <!-- <ng-container>
+                <div class="sign-social-wrapper ion-text-center">
+                    <small>อื่นๆ</small>
+                    <br />
+                    <ion-button expand="block" class="sign-in-facebook">
+                        <ion-icon slot="start" name="logo-facebook"></ion-icon>
+                        ลงชื่อเข้าใช้กับ Facebook
+                    </ion-button>
+                    <ion-button expand="block" class="sign-in-google">
+                        <ion-icon slot="start" name="logo-google"></ion-icon>
+                        ลงชื่อเข้าใช้กับ Google
+                    </ion-button>
+                </div>
+            </ng-container> -->
+            <ng-container>
+                <div class="sign-up-wrapper ion-text-center">
+                    <small
+                        >คุณยังไม่มีบัญชีใช่หรือไม่
+                        <a [routerLink]="['/sign-up']" href="javascript:void(0)">กดที่นี่</a>
+                    </small>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</ion-content>

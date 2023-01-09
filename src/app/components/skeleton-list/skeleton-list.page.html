@@ -1,0 +1,15 @@
+<ion-item lines="none" *ngFor="let item of skeletonArray">
+  <ion-label class="ion-text-nowrap">
+    <h2>
+      <ion-skeleton-text animated style="width: 50%; ; height: .8rem"></ion-skeleton-text>
+    </h2>
+    <p>
+      <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+    </p>
+  </ion-label>
+  <ion-text slot="end">
+    <small>
+      <ion-skeleton-text animated style="width: 100px"></ion-skeleton-text>
+    </small>
+  </ion-text>
+</ion-item>

@@ -1,1 +1,31 @@
+ion-tabs {
+    ion-icon {
+        font-size: 1.5rem;
+    }
+    :not(.tab-selected) {
+        ion-icon {
+            transition: all 200ms;
+            transform: scale(1);
+        }
+        ion-label {
+            transition: all 200ms;
+        }
+    }
+    .tab-selected {
+        ion-icon {
+            transition: all 200ms;
+            transform: scale(1.2);
+        }
+        ion-label {
+            transition: all 200ms;
+        }
+    }
 
+    ion-tab-button {
+        --ripple-color: #ffffff00;
+    }
+
+    ion-badge {
+        padding: .2rem .37rem;
+    }
+}

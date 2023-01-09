@@ -1,0 +1,30 @@
+.setting-wrapper {
+    .bg-cover {
+        height: 350px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-repeat: no-repeat;
+        background: linear-gradient(
+                0deg,
+                var(--ion-background-color) 0%,
+                var(--ion-background-color) 10%,
+                #ffffff04 100%
+            ),
+            url(../../../assets/images/farm.jpg);
+        background-size: 100% 100%;
+        z-index: -1;
+    }
+
+    ion-item {
+        --padding-top: 5px;
+        --padding-bottom: 5px;
+    }
+    .profile-cover {
+        padding: 2rem 0;
+    }
+}

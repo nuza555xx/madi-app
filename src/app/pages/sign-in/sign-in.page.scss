@@ -1,0 +1,42 @@
+.bg-cover {
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background: linear-gradient(
+            0deg,
+            var(--ion-background-color) 0%,
+            var(--ion-background-color) 30%,
+            #ffffff04 100%
+        ),
+        url(../../../assets/images/farm.jpg);
+    background-size: 100% 100%;
+    z-index: -1;
+}
+.sign-in-wrapper {
+    padding: 1rem;
+}
+.btn-sign-in-wrapper {
+    margin-top: 1.5rem;
+}
+.sign-social-wrapper {
+    margin-top: 1rem;
+    ion-button {
+        min-width: 70px;
+        min-height: 50px;
+    }
+    .sign-in-facebook {
+        --background: #3b5998;
+    }
+    .sign-in-google {
+        --background: #db3236;
+    }
+}
+.sign-up-wrapper {
+    margin-top: 1rem;
+}

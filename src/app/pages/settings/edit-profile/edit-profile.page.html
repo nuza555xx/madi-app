@@ -1,0 +1,89 @@
+<ion-header mode="md" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>แก้ไขข้อมูลส่วนตัว</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="edit-profile-wrapper ion-padding">
+    <div class="profile-cover ion-text-center">
+      <img
+        class="profile-avatar"
+        src="../../../../assets/images/profile.png"
+      />
+      <div class="position-bottom-end">
+        <ion-badge
+          class="btn-upload-profile ion-activatable ripple-parent"
+          mode="ios"
+          color="light"
+        >
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-icon name="camera-outline"></ion-icon
+        ></ion-badge>
+      </div>
+    </div>
+    <br />
+    <form [formGroup]="profileForm" novalidate>
+      <h5>ข้อมูลส่วนตัว</h5>
+      <app-input
+        [type]="'text'"
+        [controlName]="profileForm.controls.firstName"
+        [placeholder]="'ชื่อ'"
+        [name]="'firstName'"
+        [required]="true"
+      ></app-input>
+      <app-input
+        [type]="'text'"
+        [controlName]="profileForm.controls.lastName"
+        [placeholder]="'นามสกุล'"
+        [name]="'lastName'"
+        [required]="true"
+      ></app-input>
+      <app-input
+        [type]="'email'"
+        [controlName]="profileForm.controls.email"
+        [placeholder]="'อีเมล'"
+        [name]="'email'"
+        [disabled]="true"
+      ></app-input>
+      <app-input
+        [type]="'tel'"
+        [controlName]="profileForm.controls.tel"
+        [placeholder]="'เบอร์โทรศัพท์'"
+        [name]="'tel'"
+        [required]="true"
+        [minlength]="'10'"
+        [maxlength]="'10'"
+      ></app-input>
+      <br />
+      <h5>ที่อยู่</h5>
+      <app-select
+        [controlName]="profileForm.controls.province"
+        [placeholder]="'จังหวัด'"
+        [name]="'province'"
+        [options]="provinces"
+        [interface]="'popover'"
+        (ionChange)="selectProvince()"
+      ></app-select>
+      <app-select
+        [controlName]="profileForm.controls.district"
+        [placeholder]="'อำเภอ'"
+        [name]="'district'"
+        [options]="districts"
+        [disabled]="profileForm.controls.province.value ? false : true"
+        [interface]="'popover'"
+      ></app-select>
+    </form>
+    <br />
+    <ng-container>
+      <ion-button
+        expand="block"
+        [disabled]="profileForm.status === 'INVALID' ? true : false"
+        >แก้ไขข้อมูลส่วนตัว</ion-button
+      >
+    </ng-container>
+  </div>
+</ion-content>

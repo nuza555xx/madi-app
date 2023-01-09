@@ -1,0 +1,42 @@
+<ion-item class="select-form" lines="none">
+  <!-- <ion-select
+    [interface]="interface"
+    cancelText="ยกเลิก"
+    [formControl]="controlName"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [required]="required"
+  >
+    <ion-select-option *ngFor="let option of options" [value]="option.value"
+      >{{option.name}}</ion-select-option
+    >
+  </ion-select> -->
+  <ion-icon
+    *ngIf="!this.controlName.hasError('required') && this.controlName.dirty"
+    class="arrow-list"
+    color="success"
+    slot="end"
+    name="checkmark-outline"
+  ></ion-icon>
+  <ion-icon
+    *ngIf="this.controlName.hasError('required') && this.controlName.dirty"
+    class="arrow-list"
+    color="danger"
+    slot="end"
+    name="close-outline"
+  ></ion-icon>
+  <ion-icon
+    slot="end"
+    class="arrow-list"
+    name="chevron-down-outline"
+  ></ion-icon>
+</ion-item>
+<div class="error-container">
+  <ng-container
+    *ngIf="this.controlName.hasError('required') && this.controlName.dirty"
+  >
+    <ion-text color="danger">
+      <p class="ion-no-margin text-error">กรุณากรอกข้อมูล</p>
+    </ion-text>
+  </ng-container>
+</div>

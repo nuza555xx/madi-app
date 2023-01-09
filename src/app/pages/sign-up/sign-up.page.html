@@ -1,0 +1,81 @@
+<ion-header mode="md" class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>สมัครสมาชิก</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="sign-up-wrapper ion-padding">
+        <form [formGroup]="signupForm" novalidate>
+            <h4 class="ion-text-start">ข้อมูลผู้ใช้</h4>
+            <app-input
+                [type]="'text'"
+                [controlName]="signupForm.controls.username"
+                [placeholder]="'ชื่อผู้ใช้'"
+                [name]="'text'"
+                [required]="true"
+            ></app-input>
+            <app-input
+                [type]="'password'"
+                [controlName]="signupForm.controls.password"
+                [placeholder]="'รหัสผ่าน'"
+                [name]="'password'"
+                [required]="true"
+                [minlength]="'8'"
+            ></app-input>
+            <app-input
+                [type]="'password'"
+                [controlName]="signupForm.controls.confirmPassword"
+                [placeholder]="'ยืนยันรหัสผ่าน'"
+                [name]="'confirmPassword'"
+                [required]="true"
+                [minlength]="'8'"
+            ></app-input>
+            <br />
+            <h4 class="ion-text-start">ข้อมูลส่วนตัว</h4>
+            <app-input
+                [type]="'text'"
+                [controlName]="signupForm.controls.firstName"
+                [placeholder]="'ชื่อ'"
+                [name]="'firstName'"
+                [required]="true"
+            ></app-input>
+            <app-input
+                [type]="'text'"
+                [controlName]="signupForm.controls.lastName"
+                [placeholder]="'นามสกุล'"
+                [name]="'lastName'"
+                [required]="true"
+            ></app-input>
+            <app-input
+                [type]="'tel'"
+                [controlName]="signupForm.controls.tel"
+                [placeholder]="'เบอร์โทรศัพท์'"
+                [name]="'tel'"
+                [required]="true"
+                [minlength]="'10'"
+                [maxlength]="'10'"
+            ></app-input>
+            <app-input
+                [type]="'email'"
+                [controlName]="signupForm.controls.email"
+                [placeholder]="'อีเมล'"
+                [name]="'email'"
+                [required]="true"
+            ></app-input>
+        </form>
+        <br />
+        <ion-item lines="none">
+            <ion-checkbox slot="start" color="primary"></ion-checkbox>
+            <ion-label>ข้อกำหนดและเงื่อนไขการใช้บริการ</ion-label>
+        </ion-item>
+        <ng-container>
+            <ion-button expand="block" [disabled]="signupForm.status === 'INVALID' ? true : false"
+                >สมัครสมาชิก</ion-button
+            >
+        </ng-container>
+    </div>
+</ion-content>

@@ -1,0 +1,94 @@
+/*
+ * Copyright (c) 2021, Castcle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 3 only, as
+ * published by the Free Software Foundation.
+ *
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+ * version 3 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 3 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Castcle, 22 Phet Kasem 47/2 Alley, Bang Khae, Bangkok,
+ * Thailand 10160, or visit www.castcle.com if you need additional information
+ * or have any questions.
+ * Created Date: Tuesday, January 25th 2022, 9:00:56 pm
+ * Author: Panuwat Chaiwongthon
+ * 
+ */
+
+@mixin cursormouse($cursor, $select, $outline) {
+    @if ($cursor != null and $select != null and $outline) {
+        cursor: $cursor;
+        user-select: $select;
+        outline: $outline;
+    } @else {
+        @error "cursormouse >> ( $cursor or $select or $outline ) === undefined || ''";
+    }
+}
+
+@mixin font($font-family, $font-size, $font-weight, $line-height) {
+    font-size: $font-size;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    line-height: $line-height;
+}
+
+@mixin scroll($width, $scrollbar-background, $scrollbar-thumb-background, $border-radius) {
+    @if ($width != null and $scrollbar-background != null and $scrollbar-thumb-background != null and $border-radius) {
+        &::-webkit-scrollbar {
+            width: $width;
+        }
+
+        &::-webkit-scrollbar {
+            background-color: $scrollbar-background;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $scrollbar-thumb-background;
+            border-radius: $border-radius;
+        }
+    } @else {
+        @error "scroll >> ( $width or $scrollbar-background or $scrollbar-thumb-background or $border-radius ) === undefined || ''";
+    }
+}
+
+@mixin svg($url, $color: $white, $width: auto, $height: auto) {
+    background-color: $color;
+    // Set svg size
+    width: $width;
+    height: $height;
+    // Svg masking
+    -webkit-mask-size: $width $height;
+    mask-size: $width $height;
+    -webkit-mask-image: url($url);
+    mask-image: url($url);
+}
+
+@mixin clampFont($count: 1) {
+    display: -webkit-box;
+    -webkit-line-clamp: $count;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-word;
+    white-space: normal;
+    line-height: normal;
+}
+
+@mixin animate($animate, $timeout) {
+transition: $animate, $timeout;
+}
+@mixin lineLimit($line) {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    line-clamp: $line;
+    -webkit-box-orient: vertical;
+}

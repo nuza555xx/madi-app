@@ -1,0 +1,66 @@
+<ion-item class="input-form" lines="none">
+  <ion-input
+    clearOnEdit="false"
+    [type]="type"
+    [formControl]="controlName"
+    [placeholder]="placeholder"
+    [name]="name"
+    [required]="required"
+    [disabled]="disabled"
+    [maxlength]="maxlength"
+  >
+  </ion-input>
+  <ion-icon
+    *ngIf="(!this.controlName.hasError('required') ? controlName.value : null) && (!this.controlName.hasError('pattern') && !this.controlName.hasError('required') && !this.controlName.hasError('email') && !this.controlName.hasError('minlength') && !this.controlName.hasError('minlength') && !this.controlName.hasError('mustMatch')) && this.controlName.dirty"
+    class="arrow-list"
+    color="success"
+    slot="end"
+    name="checkmark-outline"
+  ></ion-icon>
+  <ion-icon
+    *ngIf="(this.controlName.hasError('pattern') || this.controlName.hasError('required') || this.controlName.hasError('email') || this.controlName.hasError('minlength') || this.controlName.hasError('minlength')|| this.controlName.hasError('mustMatch')) && this.controlName.dirty"
+    class="arrow-list"
+    color="danger"
+    slot="end"
+    name="close-outline"
+  ></ion-icon>
+</ion-item>
+<div class="error-container">
+  <ng-container
+    *ngIf="this.controlName.hasError('required') && this.controlName.dirty"
+  >
+    <ion-text color="danger">
+      <p class="ion-no-margin text-error">กรุณากรอกข้อมูล</p>
+    </ion-text>
+  </ng-container>
+  <ng-container
+    *ngIf="this.controlName.hasError('email') && this.controlName.dirty"
+  >
+    <ion-text color="danger">
+      <p class="ion-no-margin text-error">ตัวอย่าง : example@example.com</p>
+    </ion-text>
+  </ng-container>
+  <ng-container
+    *ngIf="this.controlName.hasError('minlength') && this.controlName.dirty"
+  >
+    <ion-text color="danger">
+      <p class="ion-no-margin text-error">
+        {{placeholder}}มีอย่างน้อย {{minlength}} ตัว
+      </p>
+    </ion-text>
+  </ng-container>
+  <ng-container
+    *ngIf="this.controlName.hasError('mustMatch') && this.controlName.dirty"
+  >
+    <ion-text color="danger">
+      <p class="ion-no-margin text-error">รหัสผ่านไม่ตรงกัน กรุณาตรวจสอบใหม่อีกครั้ง</p>
+    </ion-text>
+  </ng-container>
+  <ng-container
+    *ngIf="this.controlName.hasError('pattern') && this.controlName.dirty"
+  >
+    <ion-text color="danger">
+      <p class="ion-no-margin text-error">รูปแบบ{{placeholder}}ไม่ถูกต้อง</p>
+    </ion-text>
+  </ng-container>
+</div>
